@@ -118,15 +118,46 @@ figcaption{margin-top:.7rem;font-weight:600;text-align:center}
 .hr{display:flex;align-items:center;gap:1.2rem}
 .hr>a{color:var(--white);font-weight:600;text-decoration:none}
 .hr>a:hover{text-decoration:underline}
+
+/* modern layer */
+html{scroll-padding-top:5rem}
+body{background:#f4f7fb}
+.top{position:sticky;top:0;z-index:30;background:rgba(11,31,51,.78);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4)}
+.top header{padding:.7rem 0}
+.hero{background:radial-gradient(48rem 26rem at 88% 8%,rgba(243,123,32,.38),transparent 65%),linear-gradient(165deg,#14426e 0%,#0b2a47 100%);padding-top:2rem;border-radius:0 0 2.5rem 2.5rem}
+h1{letter-spacing:-.025em}
+.hero h1{font-size:clamp(2.6rem,7vw,5.2rem)}
+.btn{box-shadow:0 10px 24px -10px rgba(243,123,32,.9)}
+.btn.alt{box-shadow:none;background:rgba(255,255,255,.08)}
+.phone{box-shadow:0 40px 70px -25px rgba(0,0,0,.6)}
+.pro,.how,.contact{margin:1rem;border-radius:2.5rem}
+.contact{background:var(--white)}
+h3.big,h2{letter-spacing:-.02em}
+h3.big{font-size:clamp(2.2rem,5vw,3.6rem)}
+.scr{box-shadow:0 24px 44px -20px rgba(0,0,0,.5)}
+.scr::before{content:"";display:block;width:4rem;height:.35rem;border-radius:999px;background:var(--ink);opacity:.15;margin:0 auto .8rem}
+@media(min-width:821px){.screens figure:nth-child(2){transform:translateY(1.6rem)}.screens{padding-bottom:1.6rem}}
+.both{background:none}
+.both ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.8rem}
+.both li{border-radius:1.5rem;padding:1.6rem 1.3rem;font:800 1.25rem/1.3 var(--display);background:var(--white)}
+.both li:nth-child(1){background:var(--sun)}
+.both li:nth-child(3){background:var(--paddy);color:var(--white)}
+.both li:nth-child(5){background:var(--ink);color:var(--white)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+.hero h1,.hero p,.hero .ctas,.hero .phone{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
+.hero p{animation-delay:.1s}.hero .ctas{animation-delay:.2s}.hero .phone{animation-delay:.3s}
+@media(prefers-reduced-motion:reduce){.hero h1,.hero p,.hero .ctas,.hero .phone{animation:none}}
 </style>
 </head>
 <body>
-<div class="hero">
- <div class="wrap">
+<div class="top"><div class="wrap">
   <header>
    <a class="logo" href="#" aria-label="ImagineX Creations"><img src="logo.png" alt="ImagineX Creations"></a>
    <div class="hr"><a href="about.html" data-bn="আমাদের সম্পর্কে">About</a><div class="lang" role="group" aria-label="Language"><button id="bn" aria-pressed="true">বাংলা</button><button id="en" aria-pressed="false">EN</button></div></div>
   </header>
+ </div></div>
+<div class="hero">
+ <div class="wrap">
   <div>
    <div>
     <h1 data-bn="খামার আর দোকানের হিসাব, থাকবে আপনার পকেটে।">Farm and shop accounts, in your pocket.</h1>

@@ -147,6 +147,24 @@ h3.big{font-size:clamp(2.2rem,5vw,3.6rem)}
 .hero h1,.hero p,.hero .ctas,.hero .phone{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
 .hero p{animation-delay:.1s}.hero .ctas{animation-delay:.2s}.hero .phone{animation-delay:.3s}
 @media(prefers-reduced-motion:reduce){.hero h1,.hero p,.hero .ctas,.hero .phone{animation:none}}
+
+/* 3D layer */
+.hero{overflow-x:clip}
+.stage{perspective:1100px;justify-self:center;width:100%;max-width:20rem}
+.rig{position:relative;transform-style:preserve-3d;transform:rotateX(var(--rx,4deg)) rotateY(var(--ry,-10deg));transition:transform .18s ease-out}
+.fl{position:absolute;z-index:2;font:800 1rem var(--display);padding:.5rem 1rem;border-radius:999px;box-shadow:0 18px 30px -12px rgba(0,0,0,.55);animation:bob 4s ease-in-out infinite}
+.f1{top:-1.4rem;left:-1.8rem;transform:translateZ(90px);width:3.6rem;height:3.6rem;display:grid;place-items:center;padding:0;font-size:1.7rem;background:var(--sun);color:var(--ink);border-radius:50%}
+.f2{top:42%;right:-1.6rem;transform:translateZ(70px);background:#fff;color:#1c7a45}
+.f3{bottom:-1rem;left:-1.6rem;transform:translateZ(50px);background:var(--brick);color:#fff;animation-delay:-2s}
+@keyframes bob{50%{translate:0 -10px}}
+.scr,.vis,.scene,.both li{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s ease-out}
+.receipt{transform:perspective(900px) rotate(-1.5deg) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s ease-out}
+.go{box-shadow:0 3px 0 rgba(0,0,0,.25)}
+@media(prefers-reduced-motion:reduce){.fl{animation:none}}
+.btn{box-shadow:0 6px 0 #b85a10,0 16px 26px -10px rgba(243,123,32,.8);transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #b85a10}
+.btn.alt{box-shadow:0 6px 0 rgba(0,0,0,.3)}
+.btn.alt:active{box-shadow:0 2px 0 rgba(0,0,0,.3)}
 </style>
 </head>
 <body>
@@ -165,7 +183,7 @@ h3.big{font-size:clamp(2.2rem,5vw,3.6rem)}
     <div class="ctas"><a class="btn" href="#farmpilot">FarmPilot</a><a class="btn alt" href="#dokan" data-bn="দোকানের হিসাব">Dokaner Hisab</a><a class="btn alt" href="#hillclimb" data-bn="হিল ক্লাইম্ব">Hill Climb</a></div>
    </div>
    <div>
-    <div class="phone">
+    <div class="stage"><div class="rig"><div class="phone">
      <h2 data-bn="আজকের হিসাব">Today</h2>
      <dl aria-live="polite">
       <div><dt data-bn="আয়">Income</dt><dd id="inc"></dd></div>
@@ -176,6 +194,10 @@ h3.big{font-size:clamp(2.2rem,5vw,3.6rem)}
      <div class="acts"><button id="rec" data-bn="পেয়েছি">Received</button><button id="pay" data-bn="দিয়েছি">Paid</button></div>
      <p class="hint" data-bn="বাটনে চাপ দিন। এগুলো নমুনা সংখ্যা।">Tap the buttons. These are sample numbers.</p>
     </div>
+     <div class="fl f1" aria-hidden="true">৳</div>
+     <div class="fl f2" aria-hidden="true" data-bn="পেয়েছি ✓">Received ✓</div>
+     <div class="fl f3" aria-hidden="true" data-bn="বাকি কমছে">Baki down</div>
+    </div></div>
    </div>
   </div>
  </div>
@@ -351,6 +373,15 @@ document.getElementById("pay").onclick=function(){exp+=400;draw()};
 document.getElementById("y").textContent=new Date().getFullYear();
 var s="bn";try{s=localStorage.getItem("lang")||"bn"}catch(e){}
 setLang(s);
+
+if(matchMedia("(hover:hover)").matches&&!matchMedia("(prefers-reduced-motion:reduce)").matches){
+ function tilt(el,t,k){
+  el.addEventListener("pointermove",function(e){var r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.setProperty("--ry",x*k+"deg");t.style.setProperty("--rx",-y*k+"deg")});
+  el.addEventListener("pointerleave",function(){t.style.removeProperty("--ry");t.style.removeProperty("--rx")});
+ }
+ document.querySelectorAll(".scr,.vis,.scene,.receipt,.both li").forEach(function(el){tilt(el,el,14)});
+ var st=document.querySelector(".stage"),rg=document.querySelector(".rig");if(st&&rg){tilt(st,rg,22)}
+}
 </script>
 </body>
 </html>

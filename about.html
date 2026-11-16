@@ -89,6 +89,15 @@ h3.big{font-size:clamp(2.2rem,5vw,3.6rem)}
 .hero h1,.hero p,.hero .ctas,.hero .phone{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
 .hero p{animation-delay:.1s}.hero .ctas{animation-delay:.2s}.hero .phone{animation-delay:.3s}
 @media(prefers-reduced-motion:reduce){.hero h1,.hero p,.hero .ctas,.hero .phone{animation:none}}
+
+/* 3D layer */
+.cols div,.proj a b{transition:transform .2s ease-out}
+.cols div{transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+form{transform:perspective(1200px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s ease-out}
+.btn{box-shadow:0 6px 0 #b85a10,0 16px 26px -10px rgba(243,123,32,.8);transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #b85a10}
+.btn.alt{box-shadow:0 6px 0 rgba(0,0,0,.3)}
+.btn.alt:active{box-shadow:0 2px 0 rgba(0,0,0,.3)}
 </style>
 </head>
 <body>
@@ -174,6 +183,15 @@ document.getElementById("f").onsubmit=function(e){
 document.getElementById("y").textContent=new Date().getFullYear();
 var s="bn";try{s=localStorage.getItem("lang")||"bn"}catch(e){}
 setLang(s);
+
+if(matchMedia("(hover:hover)").matches&&!matchMedia("(prefers-reduced-motion:reduce)").matches){
+ function tilt(el,t,k){
+  el.addEventListener("pointermove",function(e){var r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.setProperty("--ry",x*k+"deg");t.style.setProperty("--rx",-y*k+"deg")});
+  el.addEventListener("pointerleave",function(){t.style.removeProperty("--ry");t.style.removeProperty("--rx")});
+ }
+ document.querySelectorAll(".cols div").forEach(function(el){tilt(el,el,14)});
+ 
+}
 </script>
 </body>
 </html>

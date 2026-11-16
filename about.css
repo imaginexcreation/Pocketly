@@ -86,3 +86,11 @@ form{transform:perspective(1200px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg
 .btn:active{transform:translateY(4px);box-shadow:0 2px 0 #b85a10}
 .btn.alt{box-shadow:0 6px 0 rgba(0,0,0,.3)}
 .btn.alt:active{box-shadow:0 2px 0 rgba(0,0,0,.3)}
+
+.skip{position:absolute;left:-999px;top:0;background:#fff;color:#0b1f33;padding:.6rem 1rem;z-index:100}
+.skip:focus{left:1rem;top:1rem}
+.prose{max-width:42rem}
+.prose h2{font-size:1.5rem;margin:2rem 0 .5rem}
+.prose p{margin-bottom:.8rem}
+.prose a{color:var(--paddy);font-weight:600}
+.nf{text-align:left}

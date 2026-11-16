@@ -153,3 +153,6 @@ h3.big{font-size:clamp(2.2rem,5vw,3.6rem)}
 .btn:active{transform:translateY(4px);box-shadow:0 2px 0 #b85a10}
 .btn.alt{box-shadow:0 6px 0 rgba(0,0,0,.3)}
 .btn.alt:active{box-shadow:0 2px 0 rgba(0,0,0,.3)}
+
+.skip{position:absolute;left:-999px;top:0;background:#fff;color:#0b1f33;padding:.6rem 1rem;z-index:100}
+.skip:focus{left:1rem;top:1rem}

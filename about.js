@@ -10,7 +10,7 @@ function setLang(l){
 }
 document.getElementById("bn").onclick=function(){setLang("bn")};
 document.getElementById("en").onclick=function(){setLang("en")};
-document.getElementById("f").onsubmit=function(e){
+var fm=document.getElementById("f");if(fm)fm.onsubmit=function(e){
  e.preventDefault();
  var b="Name: "+n.value+"\nContact: "+c.value+"\n\n"+m.value;
  location.href="mailto:hello@imaginexcreation.com?subject="+encodeURIComponent("Message from imaginexcreation.com")+"&body="+encodeURIComponent(b);

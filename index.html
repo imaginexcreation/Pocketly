@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImagineX Creation: AI-powered creative studio</title>
+<meta name="description" content="ImagineX Creation turns ideas into images, video, websites and brand work using AI.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#2a2bdc;--ice:#eceeff;--sun:#ffd23f;--navy:#15163f;--white:#fff;
+--display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;--body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--ice);color:var(--navy);line-height:1.6;font-size:1.0625rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+header{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+.logo{font:800 1.25rem var(--display);text-decoration:none}
+nav a{margin-left:1.5rem;text-decoration:none;font-weight:600}
+nav a:hover{text-decoration:underline}
+.hero{background:var(--blue);color:var(--white);padding:4rem 0 5rem;overflow:hidden}
+.hero h1{font:800 clamp(3rem,11vw,8.5rem)/.95 var(--display);letter-spacing:-.03em;display:flex;flex-direction:column;align-items:flex-start}
+.hero .x{display:inline-block;color:var(--sun);font-size:1.15em;line-height:.8;margin:.05em 0 .05em .6em;transition:transform .15s ease-out}
+.hero p{max-width:34rem;margin-top:2.5rem;font-size:1.25rem}
+.btn{display:inline-block;margin-top:2rem;background:var(--sun);color:var(--navy);padding:.9rem 1.6rem;border-radius:999px;font-weight:600;text-decoration:none}
+.btn:hover{background:var(--white)}
+section{padding:5rem 0}
+h2{font:800 clamp(2rem,5vw,3.25rem)/1.05 var(--display);letter-spacing:-.02em;margin-bottom:2.5rem;max-width:20ch}
+.what{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:0}
+.what div{padding:1.5rem 1.5rem 1.5rem 0;border-top:3px solid var(--navy)}
+.what h3{font:800 1.5rem var(--display);margin-bottom:.5rem}
+.work{background:var(--navy);color:var(--white)}
+.work h2{color:var(--white)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+.tile{aspect-ratio:4/5;border-radius:1.5rem 1.5rem 1.5rem .25rem;padding:1.25rem;display:flex;align-items:flex-end;font:800 1.4rem var(--display)}
+.t1{background:var(--sun);color:var(--navy)}
+.t2{background:var(--blue)}
+.t3{background:var(--ice);color:var(--navy);border-radius:.25rem 1.5rem 1.5rem 1.5rem}
+.note{margin-top:1.5rem;opacity:.75;font-size:.95rem}
+.contact p{max-width:34rem;margin-bottom:1.5rem}
+.mail{font:800 clamp(1.4rem,4vw,2.4rem) var(--display)}
+footer{padding:2rem 0;font-size:.9rem}
+@media (prefers-reduced-motion:reduce){.hero .x{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="hero">
+ <div class="wrap">
+  <header>
+   <a class="logo" href="#">ImagineX</a>
+   <nav><a href="#what">What we do</a><a href="#work">Work</a><a href="#contact">Contact</a></nav>
+  </header>
+  <h1 style="margin-top:4rem"><span>Imagine</span><span class="x" id="x" aria-hidden="true">×</span><span>Creation</span></h1>
+  <p>We use AI to turn your ideas into images, video, websites and brand work, then finish them by hand.</p>
+  <a class="btn" href="#contact">Start a project</a>
+ </div>
+</div>
+
+<section id="what">
+ <div class="wrap">
+  <h2>Four things we make for you</h2>
+  <div class="what">
+   <div><h3>Images</h3><p>Illustrations, product shots and campaign visuals made from your brief.</p></div>
+   <div><h3>Video</h3><p>Short clips and social videos, from script to final edit.</p></div>
+   <div><h3>Websites</h3><p>Fast, clean sites that are ready to publish on your own domain.</p></div>
+   <div><h3>Brand</h3><p>Logos, colors and type that make your business look consistent.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="work" class="work">
+ <div class="wrap">
+  <h2>Recent work</h2>
+  <div class="grid">
+   <div class="tile t1">Project one</div>
+   <div class="tile t2">Project two</div>
+   <div class="tile t3">Project three</div>
+  </div>
+  <p class="note">Replace these tiles with your own images and project names.</p>
+ </div>
+</section>
+
+<section id="contact" class="contact">
+ <div class="wrap">
+  <h2>Tell us what you want to make</h2>
+  <p>Send a few lines about your idea. We reply within two working days with a plan and a price.</p>
+  <a class="mail" href="mailto:hello@imaginexcreation.com">hello@imaginexcreation.com</a>
+ </div>
+</section>
+
+<footer><div class="wrap">© <span id="y">2026</span> ImagineX Creation</div></footer>
+
+<script>
+document.getElementById("y").textContent=new Date().getFullYear();
+var x=document.getElementById("x");
+if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
+ addEventListener("pointermove",function(e){
+  var r=(e.clientX/innerWidth-.5)*180;
+  x.style.transform="rotate("+r+"deg)";
+ });
+}
+</script>
+</body>
+</html>
